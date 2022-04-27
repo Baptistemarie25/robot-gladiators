@@ -4,7 +4,9 @@ function fight() {
     window.alert("The fight has begun!");
 }
 
-window.prompt("what is your robot's name?");
+var playerName = window.prompt("what is your robot's name?");
 
-fight();
+console.log(playerName);
 
+
+// fight();
