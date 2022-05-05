@@ -40,7 +40,16 @@ var fightOrSkip = function() {
     }
 }
 
+
 var fight = function (enemy) {
+
+    // Keeps track of who goes first
+        var isPlayerTurn = true;
+
+    // Randomly change turn order 
+    if (Math.random() > 0.5) {
+        isPlayerTurn = false;
+    }
     //repeat and execute as long as the enemy-robot is still alive
     while (playerInfo.health > 0 && enemy.health > 0){
 
@@ -69,7 +78,7 @@ var fight = function (enemy) {
     } else {
         window.alert(enemy.name + " still has " + enemy.health + " health left.");
     }
-
+    // player gets attacked first
     var damage = randomNumber(enemy.attack - 3, enemy.attack);
     
     playerInfo.health = Math.max(0,playerInfo.health - damage);
@@ -84,7 +93,10 @@ var fight = function (enemy) {
     } else {
         window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
     }
-}}; //end of fight function 
+}
+// switch turn order for next round 
+isPlayerTurn = !isPlayerTurn;
+}; //end of fight function 
 
 
 //function to start a new game
